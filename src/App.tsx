@@ -1,19 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import { Button } from './components'
+import { UseState} from './components'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [name, setName] = useState('Paris')
-  const countMore = () => {
-    setCount((count) => count + 1)
-  }
+  const[data, setData] = useState([])
 
   return (
     <>
-      <Button label={`Value: ${count}`} parentMethod={countMore} />
-      <p>{name}</p>
-      <Button label={`Change Name`} parentMethod={() => setName('a')} />
+      <UseState />
     </>
   )
 }
