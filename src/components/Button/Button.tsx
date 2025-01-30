@@ -6,6 +6,10 @@ interface IProps {
 }
 
 export const Button = ({label, parentMethod} : IProps) => {
+    // useEffect(() => {
+    //     console.log('Label cambió')
+    // }, [label]);
+
     return (
         <button className='custom-button' onClick={parentMethod}>
             {label}
