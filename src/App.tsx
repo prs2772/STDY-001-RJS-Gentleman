@@ -1,23 +1,28 @@
-import { useEffect } from 'react';
 import './App.css'
-import { Button, ChildrenButton } from './components';
-import { sharedValueChildren } from './services';
+import { AppForm, Button, ColorRed } from './components';
+import { GlobalProvider } from './context/global.provider';
 
 export default function App() {
-  const service = sharedValueChildren;
-
-  const handleClick = () => {
-    console.log("Me pucharon")
+  const submit = () => {
+    console.log("submitted")
   }
 
-  useEffect(() => {
-    service.setValue("Paris")
-  })
+  const handleClick = () => {
+    console.log("uy me clickio todo")
+  }
 
+  const dimeHola = () => {
+    alert("hola !!")
+  }
 
   return (
-    <Button parentMethod={handleClick}>
-      <ChildrenButton><p>My label</p></ChildrenButton>
-    </Button>
-  );
+    <GlobalProvider>
+      <ColorRed><Button parentMethod={dimeHola}>My Boton Rojo</Button></ColorRed>
+      <Button parentMethod={handleClick}> My Boton Normal</Button>
+
+      <AppForm>
+        <button type="submit" onClick={submit} ></button>
+      </AppForm>
+    </GlobalProvider>
+  )
 }
