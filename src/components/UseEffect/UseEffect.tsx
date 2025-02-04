@@ -38,7 +38,7 @@ export const UseEffect = () => {
     return () => {
       // Manejo de la memoria, al desmontar el componente
     }
-  }, [data])
+  }, [fetchData])
 
   if (loading) {
     return <div>Loading...</div>

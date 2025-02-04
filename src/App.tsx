@@ -1,46 +1,23 @@
+import { useEffect } from 'react';
 import './App.css'
-import { useFetch } from './hooks';
+import { Button, ChildrenButton } from './components';
+import { sharedValueChildren } from './services';
 
-const url = "https://jsonplaceholder.typicode.com/users/1";
+export default function App() {
+  const service = sharedValueChildren;
 
-interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string,
-    suite: string,
-    city: string,
-    zipcode: string,
-    geo: {
-      lat: string,
-      lng: string
-    }
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string,
-    catchPhrase: string,
-    bs: string
+  const handleClick = () => {
+    console.log("Me pucharon")
   }
+
+  useEffect(() => {
+    service.setValue("Paris")
+  })
+
+
+  return (
+    <Button parentMethod={handleClick}>
+      <ChildrenButton><p>My label</p></ChildrenButton>
+    </Button>
+  );
 }
-
-function App() {
-  const { data, loading, error } = useFetch<User>(url)
-  
-  if(loading) {
-    return <div>Loading...</div>
-  }
-
-  if(error) {
-    return <div>{error.message}</div>
-  }
-
-  return () => {
-    <div>{JSON.stringify(data)}</div>
-  }
-}
-
-export default App
