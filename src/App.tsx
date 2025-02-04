@@ -1,5 +1,5 @@
 import './App.css'
-import { AppForm, Button, ColorRed } from './components';
+import { AppForm, Button, ColorRed, BookReader, FocusInput } from './components';
 import { GlobalProvider } from './context/global.provider';
 
 export default function App() {
@@ -19,6 +19,9 @@ export default function App() {
     <GlobalProvider>
       <ColorRed><Button parentMethod={dimeHola}>My Boton Rojo</Button></ColorRed>
       <Button parentMethod={handleClick}> My Boton Normal</Button>
+
+      <BookReader />
+      <FocusInput />
 
       <AppForm>
         <button type="submit" onClick={submit} ></button>
