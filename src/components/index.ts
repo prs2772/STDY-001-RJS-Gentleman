@@ -8,3 +8,5 @@ export * from './AppForm/AppForm.tsx'
 
 export * from './UseRef/BookReader.tsx'
 export * from './UseRef/FocusInput.tsx'
+
+export * from './UseMemo/UseMemo.tsx'
